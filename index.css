@@ -1,6 +1,130 @@
-:root{
-    --primary: #4f46e5;
-    --text: #1f2937;
-    --bg: #ffffff;
-    --bg-light: #f9fafb;
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --border: #334155;
+    --text: #e5e7eb;
+    --muted: #94a3b8;
+    --primary: #38bdf8;
+    --danger: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+}
+
+header {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+button {
+    background: var(--primary);
+    border: none;
+    color: #000;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button.danger {
+    background: var(--danger);
+    color: #fff;
+}
+
+main {
+    padding: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: var(--card);
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    font-size: 14px;
+}
+
+tr:hover {
+    background: #020617;
+}
+
+/* Mobile Card */
+.cards {
+    display: none;
+    gap: 12px;
+}
+
+.card {
+    background: var(--card);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.card h3 {
+    margin: 0 0 6px;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+/* Form */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: var(--card);
+    width: 100%;
+    max-width: 500px;
+    padding: 16px;
+    border-radius: 10px;
+}
+
+.field {
+    margin-bottom: 10px;
+}
+
+.field input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: #020617;
+    color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    table {
+    display: none;
+    }
+    .cards {
+    display: grid;
+    }
 }

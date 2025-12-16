@@ -1,11 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Management</title>
+  <link rel="stylesheet" href="./index.css">
 </head>
+
 <body>
-    
+<header>
+  <h2>👤 Quản lý User</h2>
+  <button onclick="openForm()">➕ Thêm user</button>
+</header>
+
+<main>
+  <!-- Desktop table -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>Phone</th>
+        <th>Company</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <!-- Mobile cards -->
+  <div class="cards" id="cardList"></div>
+</main>
+
+<!-- Modal Form -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3 id="formTitle">Thêm user</h3>
+
+    <div class="field"><input id="name" placeholder="Name"></div>
+    <div class="field"><input id="username" placeholder="Username"></div>
+    <div class="field"><input id="email" placeholder="Email"></div>
+    <div class="field"><input id="city" placeholder="City"></div>
+    <div class="field"><input id="phone" placeholder="Phone"></div>
+    <div class="field"><input id="company" placeholder="Company"></div>
+
+    <div class="actions">
+      <button onclick="saveUser()">💾 Lưu</button>
+      <button class="danger" onclick="closeForm()">✖ Huỷ</button>
+    </div>
+  </div>
+</div>
+<script src="./index.js"></script>
 </body>
 </html>
