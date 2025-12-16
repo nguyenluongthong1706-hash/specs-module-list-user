@@ -103,7 +103,9 @@ tr:hover {
     width: 100%;
     max-width: 500px;
     padding: 16px;
-    border-radius: 10px;
+    border-radius: 10px;  
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .field {

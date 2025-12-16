@@ -40,13 +40,26 @@
   <div class="modal-content">
     <h3 id="formTitle">Thêm user</h3>
 
-    <div class="field"><input id="name" placeholder="Name"></div>
+    <div class="field"><input id="nameUser" placeholder="Name"></div>
     <div class="field"><input id="username" placeholder="Username"></div>
     <div class="field"><input id="email" placeholder="Email"></div>
-    <div class="field"><input id="city" placeholder="City"></div>
     <div class="field"><input id="phone" placeholder="Phone"></div>
-    <div class="field"><input id="company" placeholder="Company"></div>
-
+    <div class="field"><input id="website" placeholder="Website"></div>
+    <div>
+        <h5>Adress</h5>
+        <div class="field"><input id="street" placeholder="street"></div>
+        <div class="field"><input id="suite" placeholder="suite"></div>
+        <div class="field"><input id="city" placeholder="city"></div>
+        <div class="field"><input id="zipcode" placeholder="zipcode"></div>
+        <div class="field"><input id="geoLat" placeholder="geo lat"></div>
+        <div class="field"><input id="geoLng" placeholder="geo lng"></div>
+    </div>
+    <div>
+        <h5>Company</h5>
+        <div class="field"><input id="nameCompany" placeholder="company name"></div>
+        <div class="field"><input id="catchPhrase" placeholder="catchPhrase"></div>
+        <div class="field"><input id="bs" placeholder="bs"></div>
+    </div>
     <div class="actions">
       <button onclick="saveUser()">💾 Lưu</button>
       <button class="danger" onclick="closeForm()">✖ Huỷ</button>
