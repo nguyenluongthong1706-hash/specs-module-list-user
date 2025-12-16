@@ -26,6 +26,52 @@ const nameCompany = document.getElementById("nameCompany");
 const catchPhrase = document.getElementById("catchPhrase");
 const bs          = document.getElementById("bs");
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const phoneRegex = /^\+?[\d\s\-\(\)]+$/;
+const urlRegex = /^https?:\/\/[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+[^\s]*$/;
+
+function isEmpty(value) {
+    return !value || !value.trim();
+}
+
+function isNumber(value) {
+    return !isNaN(value) && value !== '';
+}
+
+function validateUserForm() {
+    if (isEmpty(nameUser.value))
+        return "Tên là bắt buộc";
+
+    if (isEmpty(username.value))
+        return "Username là bắt buộc";
+
+    if (username.value.length < 3)
+        return "Username phải từ 3 ký tự trở lên";
+
+    if (email.value && !emailRegex.test(email.value))
+        return "Email không đúng định dạng";
+
+    if (phone.value && !phoneRegex.test(phone.value))
+        return "Số điện thoại không đúng định dạng";
+
+    if (website.value && !urlRegex.test(website.value))
+        return "Website không đúng định dạng (http/https)";
+
+    if (zipcode.value && zipcode.value.length < 4)
+        return "Zipcode không hợp lệ";
+
+    if (geoLat.value && !isNumber(geoLat.value))
+        return "Latitude phải là số";
+
+    if (geoLng.value && !isNumber(geoLng.value))
+        return "Longitude phải là số";
+
+    if (nameCompany.value && nameCompany.value.length < 2)
+        return "Tên công ty quá ngắn";
+
+    return "";
+}
+
 async function loadUsers() {
     try {
         const res = await fetch(API);
@@ -131,15 +177,18 @@ function closeForm() {
 }
 
 async function saveUser() {
-    if (!nameUser.value || !username.value) {
-        alert("Tên và usernam là bắt buộc");
+    const error = validateUserForm();
+    if (error) {
+        alert(error);
         return;
     }
-    existUsername = users.find(u => u.username === username.value && u.id != editingId);
+
+    const existUsername = users.find(u => u.username === username.value && u.id != editingId);
     if (existUsername) {
         alert("Username đã tồn tại, vui lòng chọn username khác");
         return;
     }
+    
     if (editingId) {
         const u = users.find(x => x.id == editingId);
         u.name = nameUser.value;
@@ -197,7 +246,7 @@ async function saveUser() {
         }
     }
     closeForm();
-    loadUsers();
+    render();
 }
 
 function editUser(id) {
